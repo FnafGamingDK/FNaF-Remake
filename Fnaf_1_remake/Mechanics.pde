@@ -11,6 +11,15 @@ int bonnie = 1;
 int chica = 1;
 int foxy = 1;
 
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+Minim minim;
+AudioPlayer player;
+
 void mousePressed() {
   int x = mouseX;
   int y = mouseY;
@@ -188,6 +197,26 @@ void mousePressed() {
     }
   }
   if (InGame == true) {
+    if (i == 1) {
+      minim = new Minim(this);
+      player = minim.loadFile("Night1.wav");
+    }/*
+    if (i == 2) {
+      minim = new Minim(this);
+      player = minim.loadFile("Night1.wav");
+    }
+    if (i == 3) {
+      minim = new Minim(this);
+      player = minim.loadFile("Night1.wav");
+    }
+    if (i == 4) {
+      minim = new Minim(this);
+      player = minim.loadFile("Night1.wav");
+    }
+    if (i == 5) {
+      minim = new Minim(this);
+      player = minim.loadFile("Night1.wav");
+    }*/
     if (notcams == true) {
       if (x > 10 && x < 60 && y > height/2 && y < height/2+50) { //do l
         if (lDoor == false) {
@@ -225,14 +254,146 @@ void mousePressed() {
         MainStage = true;
         Backstage = false;
         MainRoom = false;
+        Bathroom = false;
+        PirateCove = false;
+        Kitchen = false;
+        LeftHall1 = false;
+        LeftHall2 = false;
+        RightHall1 = false;
+        RightHall2 = false;
+        Closet = false;
       } else if (x > width-570 && x < width-530 && y > height-485 && y < height-385) {
         Backstage = true;
         MainStage = false;
         MainRoom = false;
+        Bathroom = false;
+        PirateCove = false;
+        Kitchen = false;
+        LeftHall1 = false;
+        LeftHall2 = false;
+        RightHall1 = false;
+        RightHall2 = false;
+        Closet = false;
       } else if (x > width-570 && x < width-530 && y > height-485 && y < height-385) {
         MainRoom = true;
         MainStage = false;
         Backstage = false;
+        Bathroom = false;
+        PirateCove = false;
+        Kitchen = false;
+        LeftHall1 = false;
+        LeftHall2 = false;
+        RightHall1 = false;
+        RightHall2 = false;
+        Closet = false;
+      } else if (x > width-510 && x < width-150 && y > height-500 && y < height-280) {
+        MainRoom = true;
+        MainStage = false;
+        Backstage = false;
+        Bathroom = false;
+        PirateCove = false;
+        Kitchen = false;
+        LeftHall1 = false;
+        LeftHall2 = false;
+        RightHall1 = false;
+        RightHall2 = false;
+        Closet = false;
+      } else if (x > width-130 && x < width-100 && y > height-475 && y < height-325) {
+        Bathroom = true;
+        MainStage = false;
+        Backstage = false;
+        MainRoom = false;
+        PirateCove = false;
+        Kitchen = false;
+        LeftHall1 = false;
+        LeftHall2 = false;
+        RightHall1 = false;
+        RightHall2 = false;
+        Closet = false;
+      } else if (x > width-550 && x < width-510 && y > height-360 && y < height-310) {
+        PirateCove = true;
+        MainStage = false;
+        Backstage = false;
+        MainRoom = false;
+        Bathroom = false;
+        Kitchen = false;
+        LeftHall1 = false;
+        LeftHall2 = false;
+        RightHall1 = false;
+        RightHall2 = false;
+        Closet = false;
+      } else if (x > width-200 && x < width-100 && y > height-260 && y < height-180) {
+        Kitchen = true;
+        MainStage = false;
+        Backstage = false;
+        MainRoom = false;
+        Bathroom = false;
+        PirateCove = false;
+        LeftHall1 = false;
+        LeftHall2 = false;
+        RightHall1 = false;
+        RightHall2 = false;
+        Closet = false;
+      } else if (x > width-455 && x < width-390 && y > height-260 && y < height-178.5) {
+        LeftHall1 = true;
+        MainStage = false;
+        Backstage = false;
+        MainRoom = false;
+        Bathroom = false;
+        PirateCove = false;
+        Kitchen = false;
+        LeftHall2 = false;
+        RightHall1 = false;
+        RightHall2 = false;
+        Closet = false;
+      } else if (x > width-455 && x < width-390 && y > height-178.50 && y < height-98) {
+        LeftHall2 = true;
+        MainStage = false;
+        Backstage = false;
+        MainRoom = false;
+        Bathroom = false;
+        PirateCove = false;
+        Kitchen = false;
+        LeftHall1 = false;
+        RightHall1 = false;
+        RightHall2 = false;
+        Closet = false;
+      } else if (x > width-275 && x < width-210 && y > height-260 && y < height-178.5) {
+        RightHall1 = true;
+        MainStage = false;
+        Backstage = false;
+        MainRoom = false;
+        Bathroom = false;
+        PirateCove = false;
+        Kitchen = false;
+        LeftHall1 = false;
+        LeftHall2 = false;
+        RightHall2 = false;
+        Closet = false;
+      } else if (x > width-275 && x < width-210 && y > height-178.50 && y < height-98) {
+        RightHall2 = true;
+        MainStage = false;
+        Backstage = false;
+        MainRoom = false;
+        Bathroom = false;
+        PirateCove = false;
+        Kitchen = false;
+        LeftHall1 = false;
+        LeftHall2 = false;
+        RightHall1 = false;
+        Closet = false;
+      } else if (x > width-505 && x < width-465 && y > height-225 && y < height-160) {
+        Closet = true;
+        MainStage = false;
+        Backstage = false;
+        MainRoom = false;
+        Bathroom = false;
+        PirateCove = false;
+        Kitchen = false;
+        LeftHall1 = false;
+        LeftHall2 = false;
+        RightHall1 = false;
+        RightHall2 = false;
       }
     }
   }
@@ -262,6 +423,11 @@ void keyPressed() {
         InGame = false;
         MainMenu = true;
         Muted = false;
+        cams = false;
+        notcams = true;
+        MainStage = true;
+        Backstage = false;
+        MainRoom = false;
       }
     }
     if (key == '0') {
@@ -301,6 +467,7 @@ void keyPressed() {
         n = 20480;
       }
     }
+    //Office controls
     if (key == 's' && notcams == true) {
       cams = true;
       notcams = false;

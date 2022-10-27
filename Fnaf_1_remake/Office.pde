@@ -95,11 +95,10 @@ void timer() {
   }
   if (InGame == true) {
     stroke(0);
-    fill(0);
     textSize(50);
-    text(k +" AM", width-160, 70);
+    text(k +" AM", width-180, 75);
     textSize(30);
-    text("Night " + i, width-160, 95);
+    text("Night " + i, width-160, 100);
     if (n == 0) {
       k = 12;
     }
@@ -155,13 +154,17 @@ void Win() {
 
 void MuteCall() {
   if (InGame == true) {
-    if (n >= 200) {
+    if (n == 177) player.play();
+    if (n >= 177 && n <= 1357) {
       if (Muted == false) {
         fill(175);
         stroke(135);
-        rect(50, 50, 135, 50);
+        rect(50, 50, 165, 50);
         fill(0);
         text("Mute call", 60, 85);
+      }
+      if (Muted == true) {
+        player.pause();
       }
     }
   }
