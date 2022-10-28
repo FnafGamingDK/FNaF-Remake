@@ -1,3 +1,9 @@
+boolean one_power = true;
+boolean two_power = true;
+boolean three_power = true;
+boolean four_power = true;
+int p;
+
 void CamUI() {
   if (notcams == false) {
     fill(192);
@@ -118,5 +124,83 @@ void CamOutLine() {
     line(30, 30, 30, height-30);
     line(width-30, 30, width-30, height-30);
     stroke(0);
+  }
+}
+
+void power() {
+  if (InGame == true) {
+    textSize(25);
+    text("Power left: " + power, 50, height-100);
+    text("Usage: ", 50, height-50);
+    fill(26, 255, 0);
+    stroke(26, 255, 0);
+    rect(150, height-75, 20, 35);
+    fill(0, 204, 0);
+    stroke(0, 204, 0);
+    rect(165, height-75, 5, 35);
+    if (two_power == false && three_power == false && four_power == false) {
+      one_power = true;
+      two_power = false;
+      three_power = false;
+      four_power = false;
+    }
+    if ((lDoor == true || lLight == true || rDoor == true || rLight == true || cams == true)) {
+      fill(26, 255, 0);
+      stroke(26, 255, 0);
+      rect(180, height-75, 20, 35);
+      fill(0, 204, 0);
+      stroke(0, 204, 0);
+      rect(195, height-75, 5, 35);
+      one_power = true;
+      two_power = false;
+      three_power = false;
+      four_power = false;
+    }
+    if ((lDoor == true && lLight == true) || (rDoor == true && rLight == true) || (lDoor == true && rLight == true) || (rDoor == true && lLight == true) || (lDoor == true && rDoor == true) || (lDoor == true && cams == true) || (rDoor == true && cams == true)) {
+      fill(26, 255, 0);
+      stroke(26, 255, 0);
+      rect(180, height-75, 20, 35);
+      fill(0, 204, 0);
+      stroke(0, 204, 0);
+      rect(195, height-75, 5, 35);
+      fill(255, 255, 0);
+      stroke(255, 255, 0);
+      rect(210, height-75, 20, 35);
+      fill(204, 204, 0);
+      stroke(204, 204, 0);
+      rect(225, height-75, 5, 35);
+      one_power = false;
+      two_power = false;
+      three_power = true;
+      four_power = false;
+    }
+    if ((lDoor == true && lLight == true && rLight == true) || (rDoor == true && rLight == true && cams == true) || (lDoor == true && rDoor == true && cams == true) || (lDoor == true && lLight == true && cams == true) || (rDoor == true && rLight == true && cams == true) || (rDoor == true && lLight == true && cams == true) || (lDoor == true && rLight == true && cams == true) || (rDoor == true && lDoor == true && lLight == true) || (rDoor == true && lDoor == true && rLight == true)) {
+      fill(26, 255, 0);
+      stroke(26, 255, 0);
+      rect(180, height-75, 20, 35);
+      fill(0, 204, 0);
+      stroke(0, 204, 0);
+      rect(195, height-75, 5, 35);
+      fill(255, 255, 0);
+      stroke(255, 255, 0);
+      rect(210, height-75, 20, 35);
+      fill(204, 204, 0);
+      stroke(204, 204, 0);
+      rect(225, height-75, 5, 35);
+      fill(255, 0, 0);
+      stroke(255, 0, 0);
+      rect(240, height-75, 20, 35);
+      fill(204, 0, 0);
+      stroke(204, 0, 0);
+      rect(255, height-75, 5, 35);
+      one_power = false;
+      two_power = false;
+      three_power = false;
+      four_power = true;
+    }
+    if (p == 60 && one_power == true) {
+      power--;
+      p = 0;
+    }
   }
 }

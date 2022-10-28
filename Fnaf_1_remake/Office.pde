@@ -8,9 +8,9 @@ boolean lLight = false;
 boolean lDoor = false;
 boolean rLight = false;
 boolean rDoor = false;
+boolean CustomPlay = false;
 int i = 1;
 int k = 12;
-int m = 6;
 int n;
 
 void windows() {
@@ -57,7 +57,7 @@ void buttons() {
       stroke(0);
       rect(10, height/2, 50, 50); //but do l
       noFill();
-
+      
       if (lLight == true) fill(245);
       if (lLight == false) fill(150);
       rect(10, height/2+60, 50, 50); //but li l
@@ -98,7 +98,7 @@ void timer() {
     textSize(50);
     text(k +" AM", width-180, 75);
     textSize(30);
-    text("Night " + i, width-160, 100);
+    text("Night " + i, width-180, 105);
     if (n == 0) {
       k = 12;
     }
@@ -120,6 +120,10 @@ void timer() {
     if (n == 30720) {
       k = 6;
       win = true;
+    }
+    if (CustomPlay == true) {
+      textSize(20);
+      text(freddy + "/" + bonnie + "/" + chica + "/" + foxy, width-180, 130);
     }
   }
 }
@@ -153,17 +157,18 @@ void Win() {
 }
 
 void MuteCall() {
-  if (InGame == true) {
+  if (InGame == true  && i < 6) {
     if (n == 177) player.play();
     if (n >= 177 && n <= 1357) {
       if (Muted == false) {
+        textSize(30);
         fill(175);
         stroke(135);
         rect(50, 50, 165, 50);
         fill(0);
         text("Mute call", 60, 85);
       }
-      if (Muted == true) {
+      if (Muted == true && i < 6) {
         player.pause();
       }
     }

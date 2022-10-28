@@ -10,6 +10,7 @@ int freddy = 1;
 int bonnie = 1;
 int chica = 1;
 int foxy = 1;
+int power = 100;
 
 import ddf.minim.*;
 import ddf.minim.analysis.*;
@@ -33,6 +34,7 @@ void mousePressed() {
             MainMenu = false;
             SelectNight = false;
             CustomNight = false;
+            one_power = true;
             n = 0;
             i = 1;
           } else if ((x > 75 && x < 350) && (y > height/2+150 && y < height/2+200)) {
@@ -57,56 +59,71 @@ void mousePressed() {
         MainMenu = false;
         SelectNight = false;
         CustomNight = false;
+        one_power = true;
         n = 0;
         i = 1;
+        p = 0;
       } else if ((x > 75 && x < 255) && (y > 360 && y < 400)) {
         InGame = true;
         MainStage = true;
         MainMenu = false;
         SelectNight = false;
         CustomNight = false;
+        one_power = true;
         n = 0;
         i = 2;
+        p = 0;
       } else if ((x > 75 && x < 255) && (y > 560 && y < 600)) {
         InGame = true;
         MainStage = true;
         MainMenu = false;
         SelectNight = false;
         CustomNight = false;
+        one_power = true;
         n = 0;
         i = 3;
+        p = 0;
       } else if ((x > 75 && x < 255) && (y > 760 && y < 800)) {
         InGame = true;
         MainStage = true;
         MainMenu = false;
         SelectNight = false;
         CustomNight = false;
+        one_power = true;
         n = 0;
         i = 4;
+        p = 0;
       } else if ((x > width/2 && x < width/2+180) && (y > 160 && y < 200)) {
         InGame = true;
         MainStage = true;
         MainMenu = false;
         SelectNight = false;
         CustomNight = false;
+        one_power = true;
         n = 0;
         i = 5;
+        p = 0;
       } else if ((x > width/2 && x < width/2+180) && (y > 360 && y < 400)) {
         InGame = true;
         MainStage = true;
         MainMenu = false;
         SelectNight = false;
         CustomNight = false;
+        one_power = true;
         n = 0;
         i = 6;
+        p = 0;
       } else if ((x > width/2 && x < width/2+180) && (y > 560 && y < 600)) {
         InGame = true;
         MainStage = true;
         MainMenu = false;
         SelectNight = false;
         CustomNight = false;
+        CustomPlay = true;
+        one_power = true;
         n = 0;
         i = 7;
+        p = 0;
         freddy = 1;
         bonnie = 9;
         chica = 8;
@@ -117,8 +134,11 @@ void mousePressed() {
         MainMenu = false;
         SelectNight = false;
         CustomNight = false;
+        CustomPlay = true;
+        one_power = true;
         n = 0;
         i = 7;
+        p = 0;
         freddy = 20;
         bonnie = 20;
         chica = 20;
@@ -136,8 +156,11 @@ void mousePressed() {
         MainMenu = false;
         SelectNight = false;
         CustomNight = false;
+        CustomPlay = true;
+        one_power = true;
         n = 0;
         i = 7;
+        p = 0;
       } else if ((x > 100 && x < 200) && (y > height-75 && y < height-50)) {
         MainMenu = true;
         SelectNight = false;
@@ -202,21 +225,21 @@ void mousePressed() {
       player = minim.loadFile("Night1.wav");
     }/*
     if (i == 2) {
-      minim = new Minim(this);
-      player = minim.loadFile("Night1.wav");
-    }
-    if (i == 3) {
-      minim = new Minim(this);
-      player = minim.loadFile("Night1.wav");
-    }
-    if (i == 4) {
-      minim = new Minim(this);
-      player = minim.loadFile("Night1.wav");
-    }
-    if (i == 5) {
-      minim = new Minim(this);
-      player = minim.loadFile("Night1.wav");
-    }*/
+     minim = new Minim(this);
+     player = minim.loadFile("Night1.wav");
+     }
+     if (i == 3) {
+     minim = new Minim(this);
+     player = minim.loadFile("Night1.wav");
+     }
+     if (i == 4) {
+     minim = new Minim(this);
+     player = minim.loadFile("Night1.wav");
+     }
+     if (i == 5) {
+     minim = new Minim(this);
+     player = minim.loadFile("Night1.wav");
+     }*/
     if (notcams == true) {
       if (x > 10 && x < 60 && y > height/2 && y < height/2+50) { //do l
         if (lDoor == false) {
@@ -298,7 +321,7 @@ void mousePressed() {
         RightHall1 = false;
         RightHall2 = false;
         Closet = false;
-      } else if (x > width-130 && x < width-100 && y > height-475 && y < height-325) {
+      } else if (x > width-130 && x < width-50 && y > height-475 && y < height-325) {
         Bathroom = true;
         MainStage = false;
         Backstage = false;
@@ -482,22 +505,26 @@ void keyPressed() {
     } else if (key == 'a' && lDoor == true) {
       lDoor = false;
     }
-    if (key == 'q' && lLight == false) {
-      lLight = true;
-      rLight = false;
-    } else if (key == 'q' && lLight == true) {
-      lLight = false;
+    if (notcams == true) {
+      if (key == 'q' && lLight == false) {
+        lLight = true;
+        rLight = false;
+      } else if (key == 'q' && lLight == true) {
+        lLight = false;
+      }
     }
     if (key == 'd' && rDoor == false) {
       rDoor = true;
     } else if (key == 'd' && rDoor == true) {
       rDoor = false;
     }
-    if (key == 'e' && rLight == false) {
-      rLight = true;
-      lLight = false;
-    } else if (key == 'e' && rLight == true) {
-      rLight = false;
+    if (notcams == true) {
+      if (key == 'e' && rLight == false) {
+        rLight = true;
+        lLight = false;
+      } else if (key == 'e' && rLight == true) {
+        rLight = false;
+      }
     }
   }
 }

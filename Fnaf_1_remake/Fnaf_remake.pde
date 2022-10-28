@@ -9,6 +9,7 @@ void setup() {
 void draw() {
   background(192);
   strokeWeight(4);
+  frameRate(60);
   textFont(myFont);
   MainMenu();
   windows();
@@ -21,13 +22,16 @@ void draw() {
   if (cams == true) {
     fill(255);
     timer();
+    power();
   }
   if (cams == false) {
     fill(0);
     timer();
+    power();
   }
   MuteCall();
   n++;
+  p++;
   if (n >= 30720 && n <= 30950) {
     Win();
   }
